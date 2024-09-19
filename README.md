@@ -20,7 +20,7 @@ Outline of what will happen in this project
 
 The following must be in place:
 
-    GitHub project for coursework set-up.
+    GitHub project for coursework set-up. Lab1. 
     Product Backlog created.
     Project builds to self-contained JAR with Maven.
     Dockerfile for project set-up and works.
