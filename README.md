@@ -4,6 +4,11 @@ Writing in Markdown is _not_ that hard!
 ## Tess Vaughan
 ![workflow](https://github.com/TvonSween/sem/actions/workflows/main.yml/badge.svg)
 
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/TvonSween/sem/main.yml?branch=develop&style=flat-square)
+
+
+![GitHub branch status](https://img.shields.io/github/checks-status/TvonSween/sem/develop?style=flat-square)
+
 
 [![LICENSE](https://img.shields.io/github/license/TvonSween/sem.svg?style=flat-square)](https://github.com/TvonSween/sem/blob/master/LICENSE)
 
