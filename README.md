@@ -5,11 +5,9 @@ Writing in Markdown is _not_ that hard!
 ![workflow](https://github.com/TvonSween/sem/actions/workflows/main.yml/badge.svg)
 
 
-[![LICENSE](https://img.shields.io/badge/license/devops.svg?style=flat-square)](https://github.com/TvonSween/devops/blob/master/LICENSE)
+[![LICENSE](https://img.shields.io/github/license/TvonSween/sem.svg?style=flat-square)](https://github.com/TvonSween/sem/blob/master/LICENSE)
 
-
-[![Releases](https://img.shields.io/badge/github/release/devops/all.svg?style=flat-square)](https://github.com/TvonSween/devops/releases)
-
+[![Releases](https://img.shields.io/github/release/TvonSween/sem/all.svg?style=flat-square)](https://github.com/TvonSween/sem/releases)
 
 
 ###Outline of what will happen in this project
