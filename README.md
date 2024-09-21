@@ -3,7 +3,14 @@ Writing in Markdown is _not_ that hard!
 # Software Engineering Methods
 ## Tess Vaughan
 ![workflow](https://github.com/TvonSween/sem/actions/workflows/main.yml/badge.svg)
-Outline of what will happen in this project
+
+[![LICENSE](https://img.shields.io/github/license/TvonSween/devops.svg?style=flat-square)](https://github.com/TvonSween/devops/blob/master/LISCENSE)
+
+[![Releases](https://img.shields.io/github/release/TvonSween/devops/all.svg?style=flat-square)](https://github.com/TvonSween/devops/releases)
+
+
+
+###Outline of what will happen in this project
 
 ### Assessment
 [Project requirements](https://github.com/TvonSween/sem)  
