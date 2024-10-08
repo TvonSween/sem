@@ -11,11 +11,11 @@ Writing in Markdown is _not_ that hard!
 
 
 [![LICENSE](https://img.shields.io/github/license/TvonSween/sem.svg?style=flat-square)](https://github.com/TvonSween/sem/blob/master/LICENSE)
-
 [![Releases](https://img.shields.io/github/release/TvonSween/sem/all.svg?style=flat-square)](https://github.com/TvonSween/sem/releases)
 
+### Requirements table
 
-###Outline of what will happen in this project
+ | Item | Name | Done | Screenshot |
 
 ### Assessment
 [Project requirements](https://github.com/TvonSween/sem)  
