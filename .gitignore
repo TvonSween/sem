@@ -10,6 +10,7 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
+output/
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
@@ -19,6 +20,7 @@ buildNumber.properties
 *.iws
 *.iml
 *.ipr
+
 
 ### Eclipse ###
 .apt_generated
