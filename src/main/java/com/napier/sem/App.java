@@ -6,111 +6,64 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
 
-public class App {
-
+public class App
+{
     /**
-     * Connection to MySQL database.
+     * Connect to MySQL database on local system using port 33070
      */
-    private Connection con = null;
-    public static void main(String[] args) {
-        // Create new Application
-        App a = new App();
 
-        if (args.length < 1) {
-            //local
-            a.connect("localhost:33060", 0);
-        } else {
-            //docker parameters passed from Dockerfile
-            a.connect(args[0], Integer.parseInt(args[1]));
-        }
+   private Connection con = null;
 
-        a.report1();
+   public static void main(String[] args)  {
 
-        // Disconnect from database
-        a.disconnect();
-    }
+            App a = new App();
 
-    public void report1() { //throws IOException {
-       StringBuilder sb = new StringBuilder();
-        try {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String sql = "select * from country";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(sql);
-            //cycle
-            while (rset.next()) {
-                String name = rset.getString("name");
-                Integer population = rset.getInt("population");
-                sb.append(name + "\t" + population + "\r\n");
+            if (args.length < 1) {
+                //local
+                a.connect("localhost:33060", 0);
+            } else {
+                a.connect(args[0], Integer.parseInt(args[1]));
             }
-            new File("./output/").mkdir();
-            BufferedWriter writer = new BufferedWriter(
-                    new FileWriter(new File("./output/report1.txt")));
-            writer.write(sb.toString());
-            writer.close();
-            System.out.println(sb.toString());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get details");
-            return;
-        }
+       try {
+           a.report1();
+       } catch (IOException e) {
+           throw new RuntimeException(e);
+       }
 
-        System.out.println(sb.toString());
+       //Disconnect from database
+            a.disconnect();
     }
 
-    /**
-     * Connect to the MySQL database.
-     *
-     * @param conString
-     * 		Use db:3306 for docker and localhost:33060 for local or Integration
-     * 		Tests
-     * @param
-     */
-    public void connect(String conString, int delay) {
-        try {
-            // Load Database driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Could not load SQL driver");
-            System.exit(-1);
-        }
-
-        int retries = 10;
-        for (int i = 0; i < retries; ++i) {
-            System.out.println("Connecting to database...");
+    public void report1() throws IOException {
+            StringBuilder sb = new StringBuilder();
             try {
-                // Wait a bit for db to start
-                Thread.sleep(delay);
-                // Connect to database
-                //Added allowPublicKeyRetrieval=true to get Integration Tests
-                // to work. Possibly due to accessing from another class?
-                con = DriverManager.getConnection("jdbc:mysql://" + conString
-                        + "/world?allowPublicKeyRetrieval=true&useSSL"
-                        + "=false", "root", "example");
-                System.out.println("Successfully connected");
-                break;
-            } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt "
-                        + Integer.toString(i));
-                System.out.println(sqle.getMessage());
-            } catch (InterruptedException ie) {
-                System.out.println("Thread interrupted? Should not happen.");
-            }
-        }
-    }
-    /**
-     * Disconnect from the MySQL database.
-     */
-    public void disconnect() {
-        if (con != null) {
-            try {
-                // Close connection
-                con.close();
+                //Create an SQL statement
+                //Create an SQL statement
+                Statement stmt = con.createStatement();
+                //Create string for SQL statement
+                String sql = "SELECT * FROM country";
+                //Execute SQL statement
+                ResultSet rset = stmt.executeQuery(sql);
+                //cycle
+                while (rset.next()) {
+                    String name = rset.getString("name");
+                    Integer population = rset.getInt("population");
+                    sb.append(name + "\t" + population + "\r\n");
+                }
+                new File("./output").mkdir();
+                BufferedWriter writer = new BufferedWriter(
+                        new FileWriter(new File("./output/report1.txt"))
+                );
+                writer.write(sb.toString());
+                writer.close();
+                System.out.println(sb.toString());
             } catch (Exception e) {
-                System.out.println("Error closing connection to database");
-            }
+                    System.out.println(e.getMessage());
+                    System.out.println("Failed to get details");
+                   System.out.println(e.getStackTrace());
+                   e.printStackTrace();
+                    return;
         }
+            System.out.println(sb.toString());
     }
 }
