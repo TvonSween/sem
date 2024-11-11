@@ -1,4 +1,4 @@
-FROM mysql/mysql-server:latest
+FROM mysql/mysql:latest
 COPY world.sql /docker-entrypoint-initdb.d
 ENV MYSQL_ROOT_PASSWORD example
 #Mac Fix

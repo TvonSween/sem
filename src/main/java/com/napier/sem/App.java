@@ -9,7 +9,7 @@ import java.sql.*;
 public class App
 {
     /**
-     * Connect to MySQL database on local system using port 33060
+     * Connect to MySQL database on local system using port 33070
      */
 
    private Connection con = null;
@@ -20,7 +20,7 @@ public class App
 
             if (args.length < 1) {
                 //local
-                a.connect("localhost:33060", 0);
+                a.connect("localhost:33070", 0);
             } else {
                 a.connect(args[0], Integer.parseInt(args[1]));
             }
@@ -60,8 +60,8 @@ public class App
             } catch (Exception e) {
                     System.out.println(e.getMessage());
                     System.out.println("Failed to get details");
-                   // System.out.println(e.getStackTrace());
-                   // e.printStackTrace();
+                   System.out.println(e.getStackTrace());
+                   e.printStackTrace();
                     return;
         }
             System.out.println(sb.toString());

@@ -1,6 +1,6 @@
 FROM openjdk:latest
-COPY ./target/semethods.jar /tmp
+COPY ./target/sem.jar /tmp
 WORKDIR /tmp
 # change last parameter to 10000 if running on github actions
 #if running locally and database aleady started delay can be zero
-ENTRYPOINT ["java", "-jar", "semethods.jar", "world:3306", "10000"]
+ENTRYPOINT ["java", "-jar", "sem.jar", "world:3306", "10000"]
