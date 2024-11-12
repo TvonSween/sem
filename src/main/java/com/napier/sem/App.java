@@ -5,11 +5,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.*;
+import java.math.* ;
 
 public class App
 {
     /**
-     * Connect to MySQL database on local system using port 33070
+     * Connect to MySQL database on local system using port 33060
      */
 
    private Connection con = null;
@@ -33,6 +34,14 @@ public class App
        //Disconnect from database
             a.disconnect();
     }
+
+    private void disconnect() {
+        System.out.println("Disconnecting");
+    }
+
+    private void connect(String arg, int i) {
+       System.out.println("Connecting to " + arg);
+   }
 
     public void report1() throws IOException {
             StringBuilder sb = new StringBuilder();
