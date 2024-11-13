@@ -14,14 +14,14 @@ public class App
      */
 
    private Connection con = null;
-
+//no args, starts app on 3306 from here
    public static void main(String[] args)  {
 
             App a = new App();
 
             if (args.length < 1) {
                 //local
-                a.connect("localhost:33060", 0);
+                a.connect("localhost:33060", 10000);
             } else {
                 a.connect(args[0], Integer.parseInt(args[1]));
             }
@@ -34,6 +34,14 @@ public class App
        //Disconnect from database
             a.disconnect();
     }
+
+   /** public int method(String str)
+    {
+        if (str != null)
+            return str.length();
+        else
+            return -1;
+    }*/
 
     private void disconnect() {
         System.out.println("Disconnecting");
